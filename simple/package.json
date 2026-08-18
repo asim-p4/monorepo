@@ -1,0 +1,19 @@
+{
+  "name": "native-node-server",
+  "version": "1.0.0",
+  "description": "Simple, zero-dependency Node.js HTTP server and frontend built step-by-step using core modules",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "node",
+    "http",
+    "native",
+    "no-dependencies"
+  ],
+  "author": "",
+  "license": "ISC"
+}

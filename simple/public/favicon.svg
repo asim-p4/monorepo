@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+  <!-- Dark circle background -->
+  <circle cx="12" cy="12" r="11" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+  <!-- Vector paths: speed lightning bolt -->
+  <path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z" fill="#38bdf8" stroke="#38bdf8" stroke-width="0.5" stroke-linejoin="round"/>
+</svg>

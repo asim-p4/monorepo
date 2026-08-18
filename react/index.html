@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn React Basics</title>
+    <link rel="icon" type="image/svg+xml" href="logo.webp" />
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+      body {
+        color: #4f5a64;
+        background-color: #0b0f15;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        background: rgb(89, 169, 198);
+        padding: 0.5rem;
+        border-radius: 12px;
+        text-align: center;
+      }
+      button {
+        background-color: #173472;
+        color: rgb(212, 19, 19);
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 0.25rem;
+        transition: background-color 0.2s;
+      }
+      button:hover {
+        background-color: #1d4ed8;
+      }
+      .para {
+        color: #020a14;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel" src="index.js" defer></script>
+  </body>
+</html>
