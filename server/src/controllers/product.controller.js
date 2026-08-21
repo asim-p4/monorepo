@@ -1,10 +1,13 @@
 import { asyncHandler } from "../middlewares/asyncHandler.js";
 import * as productService from "../services/product.service.js";
 
-export const getAllProducts = asyncHandler(async (_req, res) => {
-  const products = await productService.getAllProducts();
-  console.dir(products);
+export const getAllProducts = asyncHandler(async (req, res) => {
+  const products = await productService.getAllProducts(req.query.page);
+  res.status(200).json(products);
+});
 
+export const filterAllProducts = asyncHandler(async (req, res) => {
+  const products = await productService.filterAllProducts(req.query);
   res.status(200).json(products);
 });
 

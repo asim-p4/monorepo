@@ -1,12 +1,26 @@
 import { Product } from "../models/product.model.js";
 
-export async function getAllProducts() {
-  return await Product.find();
+export async function getAllProducts(page = 1) {
+  const pageNum = parseInt(page, 10) || 1;
+  const skip = 10 * (pageNum - 1);
+  return await Product.find().skip(skip).limit(10);
+}
+
+export async function filterAllProducts(query = {}) {
+  const { min, max } = query;
+  const filter = {};
+
+  if (min !== undefined || max !== undefined) {
+    filter.price = {};
+    if (min !== undefined) filter.price.$gte = parseFloat(min);
+    if (max !== undefined) filter.price.$lte = parseFloat(max);
+  }
+
+  return await Product.find(filter);
 }
 
 export async function getProductById(id) {
   const product = await Product.findById(id);
-  
   if (!product) {
     const error = new Error(`Product with ID "${id}" not found`);
     error.statusCode = 404;
