@@ -23,7 +23,7 @@ router.get("/", getAllProducts);
 router.get("/filter", filterAllProducts);
 router.get("/:id", validate(objectIdSchema), getProductById);
 
-// Authenticated / Protected Routes
+// Protected Routes
 router.post("/", authenticate, validate(createProductSchema), createProduct);
 router.put("/:id", authenticate, validate(updateProductSchema), updateProduct);
 router.patch("/:id", authenticate, validate(updateProductSchema), updateProduct);

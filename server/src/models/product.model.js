@@ -17,6 +17,11 @@ const productSchema = new Schema(
       required: [true, "Product price is required"],
       min: [0, "Price must be a positive number"],
     },
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: [true, "Product creator is required"],
+    },
   },
   {
     timestamps: true,

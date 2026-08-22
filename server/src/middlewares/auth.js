@@ -4,7 +4,7 @@ import { User } from "../models/user.model.js";
 export async function authenticate(req, _res, next) {
   try {
     const authHeader = req.headers.authorization;
-    console.log(authHeader);
+    // console.log(authHeader);
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       const error = new Error("Unauthorized: Access token is required");

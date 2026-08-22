@@ -3,7 +3,10 @@ import { Product } from "../models/product.model.js";
 export async function getAllProducts(page = 1) {
   const pageNum = parseInt(page, 10) || 1;
   const skip = 10 * (pageNum - 1);
-  return await Product.find().skip(skip).limit(10);
+  return await Product.find()
+    .populate("createdBy", "name email")
+    .skip(skip)
+    .limit(10);
 }
 
 export async function filterAllProducts(query = {}) {
@@ -16,11 +19,11 @@ export async function filterAllProducts(query = {}) {
     if (max !== undefined) filter.price.$lte = parseFloat(max);
   }
 
-  return await Product.find(filter);
+  return await Product.find(filter).populate("createdBy", "name email");
 }
 
 export async function getProductById(id) {
-  const product = await Product.findById(id);
+  const product = await Product.findById(id).populate("createdBy", "name email");
   if (!product) {
     const error = new Error(`Product with ID "${id}" not found`);
     error.statusCode = 404;
@@ -30,14 +33,16 @@ export async function getProductById(id) {
 }
 
 export async function createProduct(productData) {
-  return await Product.create(productData);
+  const product = await Product.create(productData);
+  return await product.populate("createdBy", "name email");
 }
 
 export async function updateProduct(id, updateData) {
   const product = await Product.findByIdAndUpdate(id, updateData, {
     new: true,
     runValidators: true,
-  });
+  }).populate("createdBy", "name email");
+
   if (!product) {
     const error = new Error(`Product with ID "${id}" not found`);
     error.statusCode = 404;
